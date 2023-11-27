@@ -33,7 +33,7 @@
 
 
 def CheckAmplZeroCross(signalc):  
-  myBoolean = True
+  #myBoolean = True
   myArray = []
   maxim=0
   minim=0
@@ -48,6 +48,7 @@ def CheckAmplZeroCross(signalc):
         if signalc[element]>maxim:
           maxim=signalc[element]
           myArray.append(maxim)
+          maxim = 0
         if signalc[element]==0:
           #myBoolean=False
           #Vector.append(maxim)
@@ -56,11 +57,17 @@ def CheckAmplZeroCross(signalc):
         if signalc[element] < minim:
           minim=signalc[element]
           myArray.append(minim)
-        if signalc == 0:
+          minim = 0
+        if signalc[element] == 0:
           #myBoolean=True
-          
           minim=0
   return myArray     
 
 mySignal = [1, 2, 3, 2, 1, 0, -1, -2, -3, -2, -1, 0, 1, 2, 3, 2, 1, 0, -1, -2, -3, -2, -1, 0, 1, 2]
 print(CheckAmplZeroCross(mySignal))
+
+
+# for i in range(0, len(mySignal)):
+#     print(mySignal[i])
+
+
