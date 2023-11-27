@@ -5,7 +5,6 @@ def CheckAmplZeroCross(signalc):
   minim = TPT.IntX()
   minim(t) := 0
  
-during TPT.regexp([t>@]):
   for element in range(0, len(signalc(t))):
         if signalc[element](t)>maxim(t):
           maxim(t) :=signalc[element](t)
@@ -22,6 +21,10 @@ during TPT.regexp([t>@]):
           minim(t) :=0
   return myArray     
 
+
+
+signal1 = CheckAmplZeroCross(input)
+signal2 = CheckAmplZeroCross(output)
 
 during TPT.regexp([t>@]):
     Expected(t) := signal1[element] == signal2[element] ? signal1(t) : 0
