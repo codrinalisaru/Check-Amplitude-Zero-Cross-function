@@ -34,7 +34,7 @@ during TPT.regexp([t>@]):
     Diff = TPT.hose(Out, expected, 0, 0)
 
     for i in range(0, len(mySignal)):
-        if (signal1[i] == (signal2[i])):
+        if (abs(signal1[i]) >= abs(signal2[i])):
             Expected(t) := signal1
         else:
             Expected(t) := 0
