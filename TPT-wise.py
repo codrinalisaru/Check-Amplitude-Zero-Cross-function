@@ -30,7 +30,7 @@ signal1 = CheckAmplZeroCross(input)
 signal2 = CheckAmplZeroCross(output)
 
 during TPT.regexp([t>@]):
-    Expected(t) := signal1[element] == signal2[element] ? signal1(t) : 0
+    Expected(t) := abs(signal1[element](t)) >= abs(signal2[element](t)) ? signal1(t) : 0
     Diff = TPT.hose(Out, expected, 0, 0)
 
     for i in range(0, len(mySignal)):
