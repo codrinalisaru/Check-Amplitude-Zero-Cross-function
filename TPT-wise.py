@@ -1,23 +1,26 @@
 def CheckAmplZeroCross(signalc):  
   myArray = TPT.FloatArrayX()
+  myBoolean = TPT.BooleanX()
+  myBoolean(t) := True
   maxim = TPT.IntX()
   maxim(t) := 0
   minim = TPT.IntX()
   minim(t) := 0
  
   for element in range(0, len(signalc(t))):
+    if (myBoolean == True):
         if signalc[element](t)>maxim(t):
-          maxim(t) :=signalc[element](t)
+          maxim(t) :=signalc[element](t)          
+        if signalc[element](t)==0:
+          myBoolean(t) := False
           myArray(t) += [maxim](t)
           maxim(t) := 0
-        if signalc[element](t)==0:
-          maxim(t) := 0
+    else:
         if signalc[element](t) < minim(t):
           minim(t) := signalc[element](t)
-          myArray(t) += [minim](t)
-          minim(t) := 0
         if signalc[element](t) == 0:
-          #myBoolean=True
+          myBoolean=True
+          myArray(t) += [minim](t)
           minim(t) :=0
   return myArray     
 
