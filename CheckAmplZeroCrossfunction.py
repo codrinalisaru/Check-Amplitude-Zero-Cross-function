@@ -85,15 +85,15 @@ def CheckAmplZeroCross(signalc):
             if signalc[element]>maxim:
               maxim=signalc[element]
     
-            if signalc==0:
+            if signalc[element]==0:
               myBoolean = False
               myArray +=[maxim]
               maxim=0
       else:
-            if signalc < minim:
+            if signalc[element] < minim:
                 minim=signalc[element]
 
-            if signalc == 0:
+            if signalc[element] == 0:
                 myBoolean = True
                 myArray += [minim]
                 minim=0
