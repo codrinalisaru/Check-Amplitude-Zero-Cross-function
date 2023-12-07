@@ -1,3 +1,5 @@
+#local minimum and maximum function - in progress
+
 def MinMax (signalc):
     myDerivative = []
     minMax = []
